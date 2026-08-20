@@ -97,3 +97,12 @@ APK に署名するには、リポジトリの Secrets へ以下を登録して�
 | `RELEASE_STORE_PASSWORD` | キーストアのパスワード |
 | `RELEASE_KEY_ALIAS` | 鍵のエイリアス |
 | `RELEASE_KEY_PASSWORD` | 鍵のパスワード |
+
+## License
+
+AGPL-3.0 と商用ライセンスのデュアルライセンスです。詳細は [LICENSING.md](LICENSING.md) を参照してください。
+
+- **AGPL-3.0** — 無償。再配布やネットワーク越しの提供を行う場合はソースコードの公開義務があります
+- **商用ライセンス** — ソースを公開せずに製品へ組み込みたい場合。info@doany.io までお問い合わせください
+
+コントリビューションには[ライセンスに関する同意](CONTRIBUTING.md)が必要です。

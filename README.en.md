@@ -107,3 +107,14 @@ succeeds, but the APK is unsigned and cannot be installed on a device.
 | `RELEASE_STORE_PASSWORD` | Keystore password |
 | `RELEASE_KEY_ALIAS` | Key alias |
 | `RELEASE_KEY_PASSWORD` | Key password |
+
+## License
+
+Dual-licensed under AGPL-3.0 and a commercial license. See [LICENSING.md](LICENSING.md).
+
+- **AGPL-3.0** — free. Redistributing it, or providing it over a network, requires
+  publishing the source
+- **Commercial license** — for embedding it in a product without publishing the source.
+  Contact info@doany.io
+
+Contributions require agreement to the [CLA](CONTRIBUTING.md).
