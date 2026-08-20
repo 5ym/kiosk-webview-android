@@ -3,10 +3,12 @@ buildscript {
     ext.kotlin_version = "2.4.10"
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:9.3.1'
+        // AGP 9 は Kotlin のコンパイルを内蔵しているため kotlin-gradle-plugin の適用は不要。
+        // AGP が依存している既定のバージョンより新しい KGP を使うためにここで宣言している。
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -17,10 +19,10 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+tasks.register('clean', Delete) {
+    delete rootProject.layout.buildDirectory
 }

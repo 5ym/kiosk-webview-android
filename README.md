@@ -8,6 +8,7 @@ ProfileOwner, DeviceOwnerを使用せずに^1端末の動作を制限するこ�
 
 1. Android5より搭載されているユーザー機能を使ってこのアプリ用のユーザーを作成する。
 2. このアプリをインストールしデフォルトホームとブラウザをこのアプリに設定する。
+3. 設定 > ユーザー補助 から「SQP キオスクモード」を有効にする。(ステータスバーとナビゲーションバーを無効化するために必要)
 
 ## Feature
 
@@ -21,5 +22,38 @@ ProfileOwner, DeviceOwnerを使用せずに^1端末の動作を制限するこ�
 - [x] 画面常時点灯
 - [x] スクリーンショット無効化
 - [x] vue等で使うためDOM Storage有効化
-- [ ] `TYPE_ACCESSIBILITY_OVERLAY`の実装(ステータスバーとナビバーを無効化するため)(AccessibilityServiceが必要らしいのだが実装方法不明)
-- [ ] キオスクモード解除ショートカット実装(音量ボタン)
+- [x] `TYPE_ACCESSIBILITY_OVERLAY`の実装(ステータスバーとナビバーを無効化するため)
+- [x] キオスクモード解除ショートカット実装(音量ボタン)
+
+## キオスクモードの解除
+
+音量ボタンを **上→下→上→下→上** の順に5秒以内で押すとキオスクモードが解除され、
+ステータスバー/ナビゲーションバーのオーバーレイ、Lock Task、キー入力の無効化、
+スクリーンショット禁止、画面常時点灯がすべて解除されます。
+同じ操作をもう一度行うとキオスクモードへ復帰します。
+
+シーケンスと制限時間は `MainActivity.UNLOCK_SEQUENCE` と
+`UnlockSequenceDetector.DEFAULT_TIMEOUT_MILLIS` で変更できます。
+
+## ステータスバー / ナビゲーションバーの無効化
+
+`SystemBarBlockerService` が `AccessibilityService` として動作し、
+`TYPE_ACCESSIBILITY_OVERLAY` のウィンドウをステータスバーとナビゲーションバーの位置に重ねて
+タッチを飲み込みます。DeviceOwner を使わずにステータスバーの引き下ろしを塞ぐための実装のため、
+ユーザー補助設定から手動で有効にする必要があります。
+サービスが無効な場合はアプリ起動時にその旨をトーストで通知します。
+
+なお画面上端 / 下端のシステムバーと同じ高さの領域はオーバーレイがタッチを飲み込むため、
+表示するページ側でその位置に操作要素を置かないようにしてください。
+
+## Build
+
+- JDK 17 以上
+- Android SDK Platform 36.1 / Build Tools 36.0.0
+- Gradle Wrapper (9.7.1) をそのまま使用
+
+```
+./gradlew assembleDebug   # ビルド
+./gradlew test            # ローカルユニットテスト
+./gradlew connectedAndroidTest  # 実機/エミュレータでのテスト
+```
