@@ -10,7 +10,9 @@ import android.provider.Settings
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import dev.daco.sqp.MainActivity
+import dev.daco.sqp.SetupActivity
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
@@ -100,6 +102,16 @@ class KioskComponentsTest {
             .any { ComponentName.unflattenFromString(it) == component }
 
         assertEquals(enabledFromSettings, SystemBarBlockerService.isEnabled(context))
+    }
+
+    /** 設定画面がアプリ内からのみ起動できる形で登録されている。 */
+    @Suppress("DEPRECATION")
+    @Test
+    fun setupActivityIsNotExported() {
+        val component = ComponentName(context, SetupActivity::class.java)
+        val activityInfo = context.packageManager.getActivityInfo(component, 0)
+
+        assertFalse("設定画面は外部から起動できてはいけない", activityInfo.exported)
     }
 
     /** システムバーの高さは必ず正の値になる。 */

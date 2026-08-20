@@ -1,9 +1,32 @@
 <resources>
     <string name="app_name">SQP</string>
     <string name="camera_permission_required">許可されないとアプリが実行できません</string>
+
     <string name="accessibility_service_label">SQP キオスクモード</string>
     <string name="accessibility_service_description">ステータスバーとナビゲーションバーの操作を無効化してキオスクモードを維持します。</string>
     <string name="accessibility_service_hint">ステータスバーを無効化するには、設定 &gt; ユーザー補助 から「SQP キオスクモード」を有効にしてください</string>
+
     <string name="kiosk_mode_enabled">キオスクモードを有効にしました</string>
     <string name="kiosk_mode_disabled">キオスクモードを解除しました</string>
+
+    <string name="setup_url_label">表示するURL</string>
+    <string name="setup_url_hint">https://example.com</string>
+    <string name="setup_password_label">解除用パスワード</string>
+    <string name="setup_password_hint">パスワード</string>
+    <string name="setup_password_confirm_label">解除用パスワード(確認)</string>
+    <string name="setup_password_confirm_hint">もう一度入力</string>
+    <string name="setup_password_required_hint">キオスクモードの解除に使います。4文字以上で入力してください。</string>
+    <string name="setup_password_keep_hint">変更しない場合は空欄のままにしてください。</string>
+    <string name="setup_save">保存してキオスクモードを開始</string>
+    <string name="setup_required">URLとパスワードを設定してください</string>
+    <string name="setup_error_invalid_url">URLが正しくありません(http/httpsのみ対応)</string>
+    <string name="setup_error_password_required">解除用パスワードを設定してください</string>
+    <string name="setup_error_password_too_short">パスワードは4文字以上にしてください</string>
+    <string name="setup_error_password_mismatch">確認用パスワードが一致しません</string>
+
+    <string name="unlock_dialog_title">キオスクモードの解除</string>
+    <string name="unlock_password_hint">解除用パスワード</string>
+    <string name="unlock_action">解除</string>
+    <string name="unlock_open_setup_action">設定を変更</string>
+    <string name="unlock_wrong_password">パスワードが違います</string>
 </resources>
