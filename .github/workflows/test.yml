@@ -1,0 +1,30 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@v4
+
+      - uses: gradle/actions/setup-gradle@v6
+
+      # ユニットテストに加え、リソースやマニフェストの不整合を拾うためビルドも通す。
+      - name: Test and build
+        run: ./gradlew test assembleDebug
