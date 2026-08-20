@@ -2,9 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     namespace = 'io.doany.lockview'
-    // androidx のライブラリが API 36.1 でコンパイルされているため、それに合わせる。
-    compileSdk = 36
-    compileSdkMinor = 1
+    // androidx のライブラリが API 37 以上でのコンパイルを要求するため。
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "io.doany.lockview"
