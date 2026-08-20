@@ -1,6 +1,7 @@
-# Kisok-Webview-Android
+# Lockview
 
-ProfileOwner, DeviceOwnerを使用せずに^1端末の動作を制限することを目標としています。
+WebView を全画面表示したままロックし、Android 端末をキオスク端末として使うためのアプリです。
+ProfileOwner / DeviceOwner を使わずに^1 端末の動作を制限することを目標としています。
 
 ^1 両者共にデバイスセットアップ時にアプリの設定が必要になるため既存の端末をそのままキオスク端末化したいため
 
@@ -8,7 +9,7 @@ ProfileOwner, DeviceOwnerを使用せずに^1端末の動作を制限するこ�
 
 1. Android5より搭載されているユーザー機能を使ってこのアプリ用のユーザーを作成する。
 2. このアプリをインストールしデフォルトホームとブラウザをこのアプリに設定する。
-3. 設定 > ユーザー補助 から「SQP キオスクモード」を有効にする。(ステータスバーとナビゲーションバーを無効化するために必要)
+3. 設定 > ユーザー補助 から「Lockview キオスクモード」を有効にする。(ステータスバーとナビゲーションバーを無効化するために必要)
 4. アプリを起動すると設定画面が出るので、表示するURLと解除用パスワードを入力する。
    保存するとそのままキオスクモードが始まる。以降の起動では設定画面は出ない。
 
@@ -49,7 +50,7 @@ http/https 以外は受け付けません。設定が終わるまで戻るキー
 
 ### パスワードを忘れた場合
 
-設定 > アプリ > SQP からストレージを消去すると未設定状態に戻ります。
+設定 > アプリ > Lockview からストレージを消去すると未設定状態に戻ります。
 パスワードはソルト付きPBKDF2でハッシュ化して保存しているため、復元はできません。
 
 ## ステータスバー / ナビゲーションバーの無効化
@@ -67,10 +68,30 @@ http/https 以外は受け付けません。設定が終わるまで戻るキー
 
 - JDK 17 以上
 - Android SDK Platform 36.1 / Build Tools 36.0.0
-- Gradle Wrapper (9.7.1) をそのまま使用
 
 ```
-./gradlew assembleDebug   # ビルド
-./gradlew test            # ローカルユニットテスト
-./gradlew connectedAndroidTest  # 実機/エミュレータでのテスト
+./gradlew assembleDebug          # ビルド
+./gradlew test                   # ローカルユニットテスト
+./gradlew connectedAndroidTest   # 実機/エミュレータでのテスト
 ```
+
+## Release
+
+`v` から始まるタグを push すると GitHub Actions がテストとリリースAPKのビルドを行い、
+GitHub Release へ `lockview-<タグ>.apk` を添付します。
+
+```
+git tag v1.0.0 && git push origin v1.0.0
+```
+
+`versionName` はタグから `v` を除いたもの、`versionCode` はワークフローの実行番号になります。
+
+APK に署名するには、リポジトリの Secrets へ以下を登録してください。
+未登録の場合はビルドは通りますが未署名APKになり、端末へインストールできません。
+
+| Secret | 内容 |
+| --- | --- |
+| `RELEASE_KEYSTORE_BASE64` | キーストアを base64 エンコードしたもの (`base64 -w0 release.jks`) |
+| `RELEASE_STORE_PASSWORD` | キーストアのパスワード |
+| `RELEASE_KEY_ALIAS` | 鍵のエイリアス |
+| `RELEASE_KEY_PASSWORD` | 鍵のパスワード |

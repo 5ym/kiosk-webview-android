@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">SQP</string>
+    <string name="app_name">Lockview</string>
     <string name="camera_permission_required">許可されないとアプリが実行できません</string>
 
-    <string name="accessibility_service_label">SQP キオスクモード</string>
+    <string name="accessibility_service_label">Lockview キオスクモード</string>
     <string name="accessibility_service_description">ステータスバーとナビゲーションバーの操作を無効化してキオスクモードを維持します。</string>
-    <string name="accessibility_service_hint">ステータスバーを無効化するには、設定 &gt; ユーザー補助 から「SQP キオスクモード」を有効にしてください</string>
+    <string name="accessibility_service_hint">ステータスバーを無効化するには、設定 &gt; ユーザー補助 から「Lockview キオスクモード」を有効にしてください</string>
 
     <string name="kiosk_mode_enabled">キオスクモードを有効にしました</string>
     <string name="kiosk_mode_disabled">キオスクモードを解除しました</string>

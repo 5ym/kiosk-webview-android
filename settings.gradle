@@ -1,2 +1,2 @@
+rootProject.name = "Lockview"
 include ':app'
-rootProject.name = "SQP"
