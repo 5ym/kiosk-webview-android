@@ -78,7 +78,7 @@ bars, swallow touches. Avoid placing interactive elements there in the page you 
 ## Build
 
 - JDK 17 or later
-- Android SDK Platform 36.1 / Build Tools 36.0.0
+- Android SDK Platform 37 / Build Tools 36.0.0
 
 ```
 ./gradlew assembleDebug          # build

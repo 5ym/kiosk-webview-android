@@ -69,7 +69,7 @@ http/https 以外は受け付けません。設定が終わるまで戻るキー
 ## Build
 
 - JDK 17 以上
-- Android SDK Platform 36.1 / Build Tools 36.0.0
+- Android SDK Platform 37 / Build Tools 36.0.0
 
 ```
 ./gradlew assembleDebug          # ビルド
