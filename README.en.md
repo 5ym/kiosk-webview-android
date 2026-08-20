@@ -2,6 +2,10 @@
 
 [日本語](README.md)
 
+[![Test](https://github.com/5ym/lockview-android/actions/workflows/test.yml/badge.svg)](https://github.com/5ym/lockview-android/actions/workflows/test.yml)
+[![Release](https://github.com/5ym/lockview-android/actions/workflows/release.yml/badge.svg)](https://github.com/5ym/lockview-android/actions/workflows/release.yml)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](LICENSE)
+
 An Android app that displays a WebView in full screen and locks the device down,
 turning it into a kiosk terminal. The goal is to restrict the device **without**
 using ProfileOwner or DeviceOwner<sup>1</sup>.

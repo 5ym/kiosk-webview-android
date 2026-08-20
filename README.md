@@ -2,6 +2,10 @@
 
 [English](README.en.md)
 
+[![Test](https://github.com/5ym/lockview-android/actions/workflows/test.yml/badge.svg)](https://github.com/5ym/lockview-android/actions/workflows/test.yml)
+[![Release](https://github.com/5ym/lockview-android/actions/workflows/release.yml/badge.svg)](https://github.com/5ym/lockview-android/actions/workflows/release.yml)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](LICENSE)
+
 WebView を全画面表示したままロックし、Android 端末をキオスク端末として使うためのアプリです。
 ProfileOwner / DeviceOwner を使わずに^1 端末の動作を制限することを目標としています。
 

@@ -2,7 +2,7 @@
 
 Lockview はデュアルライセンスで提供しています。用途に応じて、以下のいずれかを選択してください。
 
-Copyright (C) 2020-2026 doany
+Copyright (C) 2020-2026 Doa
 
 ---
 
