@@ -49,3 +49,5 @@ jobs:
       - uses: softprops/action-gh-release@v3
         with:
           files: lockview-*.apk
+          # 前回のタグからのコミットとPRからリリース本文を自動生成する。
+          generate_release_notes: true
